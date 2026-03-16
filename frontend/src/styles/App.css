@@ -255,6 +255,7 @@ body.light-mode .stat-card p {
   cursor: pointer;
 }
 
+
 .date-filter {
   display: flex;
   gap: 14px;
@@ -263,9 +264,9 @@ body.light-mode .stat-card p {
 
 .date-group {
   display: flex;
-  flex-direction: column;
-  text-align: left;
-  font-size: 0.8rem;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
 }
 
 .date-group label {
