@@ -6,6 +6,10 @@ This application provides an interactive interface to analyze asteroid character
 
 ---
 
+## Live Demo
+
+https://nasa-neo-asteroid-dashboard-1.onrender.com/
+
 # Project Overview
 
 The **NASA NEO Asteroid Intelligence Dashboard** is designed to help users explore asteroid data retrieved from NASA's Near Earth Object API.
@@ -17,6 +21,15 @@ The system follows a **client-server architecture**:
 - The backend processes requests and ensures stable API communication
 
 This architecture improves reliability, enables testability, and separates data processing from presentation logic.
+
+# How to Use
+
+- View asteroid data for the next 24 hours by default
+- Extend the date range up to 7 days
+- Search asteroids by name
+- Filter potentially hazardous objects
+- Sort by size or velocity
+- Explore charts for trends and statistics
 
 ---
 
