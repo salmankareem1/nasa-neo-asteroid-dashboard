@@ -12,12 +12,16 @@ const AboutSection = () => {
         asteroids that pass relatively close to Earth by analysing their size,
         velocity, hazard classification, and closest approach distance.
       </p>
-      
-       <p>
-        By default, the dashboard displays asteroid data for the next 24 hours.
-        Users can extend the date range to explore data for up to a maximum of
-        7 days.
-      </p>
+
+      <p>
+        By default, the dashboard displays asteroid data for the past 7 days. Users can adjust the date range to 
+        explore data within a maximum window of 7 days, in accordance with NASA API constraints.
+     </p>
+
+     <p>
+       Each asteroid listed below represents an object that has made a close approach to Earth within the selected 
+       date range. The displayed “Approach Date” indicates when the asteroid came closest to Earth.
+     </p>
 
       <p>
         Users can search asteroids by name, filter potentially hazardous
