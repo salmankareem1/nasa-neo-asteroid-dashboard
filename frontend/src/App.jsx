@@ -24,32 +24,41 @@ const App = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
-  const getData = useCallback(async () => {
-    if (startDate && endDate && startDate > endDate) {
-      return;
-    }
+const getData = useCallback(async () => {
+  if ((startDate && !endDate) || (!startDate && endDate)) {
+    return;
+  }
 
-    try {
-      setLoading(true);
-      setError(null);
+  if (startDate && endDate && startDate > endDate) {
+    return;
+  }
 
-      const data = await fetchNeoData(startDate, endDate);
-      setNeoData(data);
-    } catch (err) {
-      setError("Failed to fetch asteroid data. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  }, [startDate, endDate]);
+  try {
+    setLoading(true);
+    setError(null);
 
-  useEffect(() => {
-    if (startDate && endDate && startDate > endDate) {
-      toast.error("Start date cannot be after end date");
-      return;
-    }
+    const data = await fetchNeoData(startDate, endDate);
+    setNeoData(data);
+    setFilteredData(data);
+  } catch (err) {
+    setError("Failed to fetch asteroid data. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+}, [startDate, endDate]);
 
-    getData();
-  }, [getData]);
+useEffect(() => {
+  if ((startDate && !endDate) || (!startDate && endDate)) {
+    return;
+  }
+
+  if (startDate && endDate && startDate > endDate) {
+    toast.error("Start date cannot be after end date");
+    return;
+  }
+
+  getData();
+}, [getData, startDate, endDate]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
