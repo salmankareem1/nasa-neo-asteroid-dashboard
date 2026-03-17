@@ -465,3 +465,80 @@ body.light-mode .no-results {
     align-items: flex-start;
   }
 }
+
+.about-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.about-section h2 {
+  margin-bottom: 16px;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.about-section p {
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+
+.learn-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.learn-link::before {
+  content: "▶ ";
+}
+
+
+.data-source {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.data-source a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+.light-mode .learn-link {
+  color: #0a66ff;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.7);
+}
+
+.light-mode .learn-link:hover {
+  background: rgba(10,102,255,0.08);
+}
+
+.light-mode .data-source a {
+  color: #0a66ff;
+}
+
+.dark-mode .learn-link {
+  color: #6da8ff;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.03);
+}
+
+.dark-mode .learn-link:hover {
+  background: rgba(109,168,255,0.08);
+}
+
+.dark-mode .data-source a {
+  color: #6da8ff;
+}

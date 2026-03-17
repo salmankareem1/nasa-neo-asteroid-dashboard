@@ -5,6 +5,7 @@ import AsteroidCard from "./components/cards/AsteroidCard";
 import SearchBar from "./components/filters/SearchBar";
 import AsteroidCharts from "./components/charts/AsteroidCharts";
 import StatsGrid from "./components/layout/StatsGrid";
+import AboutSection from "./components/layout/AboutSection";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -193,6 +194,7 @@ const App = () => {
         <div className="overlay">🌍 Near-Earth Objects (NEOs)</div>
       </div>
 
+      <AboutSection />
       <StatsGrid neoData={neoData} />
 
       <SearchBar
