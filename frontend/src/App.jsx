@@ -24,37 +24,49 @@ const App = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
-const getData = useCallback(async () => {
+useEffect(() => {
   if ((startDate && !endDate) || (!startDate && endDate)) {
     return;
   }
 
-  if (startDate && endDate && startDate > endDate) {
-    return;
+  if (startDate && endDate) {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const diffInDays = (end - start) / (1000 * 60 * 60 * 24);
+
+    if (start > end) {
+      toast.error("Start date cannot be after end date");
+      return;
+    }
+
+    if (diffInDays > 7) {
+      toast.error("NASA NEO API supports a maximum 7 day date range");
+      return;
+    }
   }
 
-  try {
-    setLoading(true);
-    setError(null);
-
-    const data = await fetchNeoData(startDate, endDate);
-    setNeoData(data);
-    setFilteredData(data);
-  } catch (err) {
-    setError("Failed to fetch asteroid data. Please try again.");
-  } finally {
-    setLoading(false);
-  }
-}, [startDate, endDate]);
+  getData();
+}, [getData, startDate, endDate]);
 
 useEffect(() => {
   if ((startDate && !endDate) || (!startDate && endDate)) {
     return;
   }
 
-  if (startDate && endDate && startDate > endDate) {
-    toast.error("Start date cannot be after end date");
-    return;
+  if (startDate && endDate) {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const diffInDays = (end - start) / (1000 * 60 * 60 * 24);
+
+    if (start > end) {
+      toast.error("Start date cannot be after end date");
+      return;
+    }
+
+    if (diffInDays > 7) {
+      toast.error("NASA NEO API supports a maximum 7 day date range");
+      return;
+    }
   }
 
   getData();

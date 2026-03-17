@@ -63,7 +63,7 @@ const SearchBar = ({
       id="start-date"
       type="date"
       value={startDate}
-      max={endDate}
+      max={endDate || undefined}
       onChange={(e) => setStartDate(e.target.value)}
       className="date-input"
       aria-label="Start date"
@@ -76,7 +76,14 @@ const SearchBar = ({
       id="end-date"
       type="date"
       value={endDate}
-      min={startDate}
+      min={endDate || undefined}
+      max={
+    startDate
+      ? new Date(new Date(startDate).getTime() + 7 * 24 * 60 * 60 * 1000)
+          .toISOString()
+          .split("T")[0]
+      : undefined
+  }
       onChange={(e) => setEndDate(e.target.value)}
       className="date-input"
       aria-label="End date"
