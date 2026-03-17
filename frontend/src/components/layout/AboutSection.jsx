@@ -12,6 +12,12 @@ const AboutSection = () => {
         asteroids that pass relatively close to Earth by analysing their size,
         velocity, hazard classification, and closest approach distance.
       </p>
+      
+       <p>
+        By default, the dashboard displays asteroid data for the next 24 hours.
+        Users can extend the date range to explore data for up to a maximum of
+        7 days.
+      </p>
 
       <p>
         Users can search asteroids by name, filter potentially hazardous
